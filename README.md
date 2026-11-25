@@ -1,11 +1,14 @@
 # Tiny Trend Bot — Beat Buy-and-Hold on Solana
 
+
 [![make.fun](https://make.fun/badge/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1.svg)](https://make.fun/competition/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1)
-[![rank](https://make.fun/badge/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1/<owner>/<repo>/rank.svg)](https://make.fun/competition/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1)
-[![reward](https://make.fun/badge/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1/<owner>/<repo>/reward.svg)](https://make.fun/competition/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1)
+[![rank](https://make.fun/badge/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1/kazuki-fortune88/makefun-tiny-bot-sol/rank.svg)](https://make.fun/competition/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1)
+[![reward](https://make.fun/badge/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1/kazuki-fortune88/makefun-tiny-bot-sol/reward.svg)](https://make.fun/competition/u-gorun-gadget-tiny-bot-easy-2-beat-a48f3ce1)
+
 
 > NOTE: `<owner>/<repo>` in the rank/reward badges above is a placeholder —
 > the coordinator replaces it with the real GitHub owner/repo when uploading.
+
 
 A long-only trend-following bot for the make.fun bounty
 **"Tiny Bot, Easy $2: Beat Buy-and-Hold on Solana"**
@@ -13,10 +16,13 @@ A long-only trend-following bot for the make.fun bounty
 It trades hourly bars of FARTCOIN, JITOSOL, POPCAT, RAY, SOL, WETH and WIF
 via the `agent-fun/bars-replay/v1` protocol, with no network access.
 
+
 ## Strategy
+
 
 Textbook EMA trend-following with fixed, round parameters — nothing fitted
 to the dev window:
+
 
 - **Trend:** EMA(12) vs EMA(26) of hourly closes (the classic MACD spans).
 - **Enter** when the fast EMA crosses above the slow EMA *and* the close is
@@ -32,7 +38,9 @@ to the dev window:
   deterministic float64 math only — no clock, environment or randomness —
   so the two grading runs produce identical action logs.
 
+
 ## Why it should be robust (not overfit)
+
 
 The final window is 3 unseen days of prices *after* the deadline, so the dev
 window cannot be trusted as a target. The bot therefore uses only the
@@ -42,9 +50,12 @@ statistical: in a falling market it sits mostly in cash (no forced holding),
 while in a rising market it rides the coins whose trend has actually turned
 up. No grid search or parameter optimisation was run.
 
+
 ## Grade locally
 
+
 From the kit directory:
+
 
 ```sh
 node cli/makefun.mjs grade-local --kit . \
@@ -52,10 +63,15 @@ node cli/makefun.mjs grade-local --kit . \
   --driver docker
 ```
 
+
 ## Referral
+
 
 Built with referral `4fxhr3y1`.
 
+
 ## License
 
+
 MIT — see [LICENSE](LICENSE).
+
